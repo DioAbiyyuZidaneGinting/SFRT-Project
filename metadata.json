@@ -1,0 +1,6 @@
+{
+  "name": "SFRT Refuel",
+  "description": "Super Fast Refueling Technology - AI-powered futuristic smart fuel purchasing and automatic refueling platform.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

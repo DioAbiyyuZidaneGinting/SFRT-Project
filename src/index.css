@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --brand-emerald: #10b981;
+    --brand-emerald-dim: #34d399;
+    --cyber-green: #10b981; /* Kept for legacy class compatibility */
+    --cyber-green-dim: #34d399;
+    --cyber-dark: #09090b;
+    --cyber-gray: #18181b;
+    --cyber-light: #fafafa;
+    --cyber-silver: #a1a1aa;
+    
+    /* Semantic Colors - Light Mode */
+    --bg-primary: #fafaf7;
+    --bg-secondary: #ffffff;
+    --text-primary: #0c0c0b;
+    --text-secondary: #52525b;
+    --border-color: #e4e4e7;
+    --panel-bg: rgba(255, 255, 255, 0.9);
+    --overlay: rgba(0, 0, 0, 0.03);
+    --overlay-hover: rgba(0, 0, 0, 0.06);
+    
+    /* Shadow Tokens - Light Mode (Soft, Minimalist) */
+    --shadow-panel: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px 0 rgba(0, 0, 0, 0.02);
+    --shadow-glow: 0 4px 12px 0 rgba(16, 185, 129, 0.12);
+    --shadow-soft: 0 2px 6px -2px rgba(0, 0, 0, 0.03);
+  }
+
+  .dark {
+    --brand-emerald: #10b981;
+    --brand-emerald-dim: #059669;
+    --cyber-green: #10b981;
+    --cyber-green-dim: #059669;
+    
+    /* Semantic Colors - Dark Mode */
+    --bg-primary: #0c0c0b;
+    --bg-secondary: #121211;
+    --text-primary: #fafafa;
+    --text-secondary: #a1a1aa;
+    --border-color: #222221;
+    --panel-bg: rgba(18, 18, 17, 0.7);
+    --overlay: rgba(255, 255, 255, 0.04);
+    --overlay-hover: rgba(255, 255, 255, 0.08);
+
+    /* Shadow Tokens - Dark Mode */
+    --shadow-panel: 0 4px 20px -2px rgba(0, 0, 0, 0.5);
+    --shadow-glow: 0 4px 12px 0 rgba(16, 185, 129, 0.15);
+    --shadow-soft: 0 4px 12px -2px rgba(0, 0, 0, 0.4);
+  }
+}
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-cyber-green: var(--cyber-green);
+  --color-cyber-green-dim: var(--cyber-green-dim);
+  --color-brand-emerald: var(--brand-emerald);
+  --color-cyber-dark: var(--cyber-dark);
+  --color-cyber-gray: var(--cyber-gray);
+  --color-cyber-light: var(--cyber-light);
+  --color-cyber-silver: var(--cyber-silver);
+  
+  --color-bg-primary: var(--bg-primary);
+  --color-bg-secondary: var(--bg-secondary);
+  --color-panel-bg: var(--panel-bg);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-border-primary: var(--border-color);
+  --color-overlay: var(--overlay);
+  --color-overlay-hover: var(--overlay-hover);
+
+  --shadow-panel: var(--shadow-panel);
+  --shadow-glow: var(--shadow-glow);
+  --shadow-soft: var(--shadow-soft);
+}
+
+/* Premium Automotive Panels */
+.cyber-panel {
+  background: var(--panel-bg);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-panel);
+}
+
+/* Accent Panels - softer now */
+.cyber-panel-green {
+  background: rgba(16, 185, 129, 0.03);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(16, 185, 129, 0.12);
+}
+.dark .cyber-panel-green {
+  background: rgba(16, 185, 129, 0.05);
+  border: 1px solid rgba(16, 185, 129, 0.15);
+}
+
+/* Formerly glowing, now just slightly elevated */
+.cyber-panel-glowing {
+  box-shadow: var(--shadow-panel);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+.dark .cyber-panel-glowing {
+  box-shadow: var(--shadow-panel);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+/* Neutralized elements to prevent layout breaking if used */
+.cyber-scanline::after, .scan-laser {
+  display: none !important;
+}
+.cyber-scanline {
+  position: relative;
+}
+
+/* Subtle Grid Background for Enterprise Feel */
+.cyber-grid-bg {
+  background-color: var(--bg-primary);
+  background-size: 60px 60px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.015) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.015) 1px, transparent 1px);
+}
+.dark .cyber-grid-bg {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.01) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.01) 1px, transparent 1px);
+}
+
+.cyber-grid-green {
+  background-size: 60px 60px;
+  background-image: 
+    linear-gradient(to right, rgba(16, 185, 129, 0.015) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(16, 185, 129, 0.015) 1px, transparent 1px);
+}
+.dark .cyber-grid-green {
+  background-image: 
+    linear-gradient(to right, rgba(16, 185, 129, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(16, 185, 129, 0.02) 1px, transparent 1px);
+}
+
+/* Clean Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 6px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* Premium Buttons - replacing glowing effects */
+.cyber-button-glowing {
+  background-color: var(--brand-emerald);
+  color: #ffffff;
+  transition: all 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cyber-button-glowing:hover {
+  background-color: var(--brand-emerald-dim);
+  transform: translateY(-1px);
+}
+
+.cyber-button-glowing:active {
+  transform: translateY(0);
+}
+
+html {
+  font-family: 'Inter', sans-serif;
+  scroll-behavior: smooth;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* ─── Landing Page Marquee ─────────────────────────── */
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+.marquee-track:hover { animation-play-state: paused; }
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
